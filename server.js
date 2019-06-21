@@ -3,7 +3,7 @@ const app = express();
 
 app.use(express.static('assets'));
 
-app.use(function(req, res, next){
+app.use((req, res, next) => {
     console.log('Hej, jestem pośrednikiem między żądaniem a odpowiedzią!');
     next();
 });
@@ -34,5 +34,5 @@ const server = app.listen(3000, 'localhost', () => {
     const host = server.address().address;
     const port = server.address().port;
 
-    console.log('Przykładowa aplikacja nasłuchuje na http://' + host + ':' + port);
+    console.log(`Przykładowa aplikacja nasłuchuje na http://${host}:${port}`);
 });
